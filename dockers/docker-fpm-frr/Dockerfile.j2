@@ -54,10 +54,12 @@ COPY ["TSC", "/usr/bin/TSC"]
 COPY ["TS", "/usr/bin/TS"]
 COPY ["files/supervisor-proc-exit-listener", "/usr/bin"]
 COPY ["zsocket.sh", "/usr/bin/"]
+COPY ["zebra.sh", "/usr/bin/"]
 RUN chmod a+x /usr/bin/TSA && \
     chmod a+x /usr/bin/TSB && \
     chmod a+x /usr/bin/TSC && \
-    chmod a+x /usr/bin/zsocket.sh
+    chmod a+x /usr/bin/zsocket.sh && \
+    chmod a+x /usr/bin/zebra.sh 
 
 {% if include_system_eventd == "y" and build_reduce_image_size != "y" %}
 COPY ["*.json", "/etc/rsyslog.d/"]
